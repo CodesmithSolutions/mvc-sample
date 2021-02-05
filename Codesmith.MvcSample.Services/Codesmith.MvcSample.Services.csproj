@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SimpleInjector, Version=5.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.5.2.1\lib\net461\SimpleInjector.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,10 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IUserService.cs" />
-    <Compile Include="UserService.cs" />
+    <Compile Include="Properties\Contracts\IUserService.cs" />
+    <Compile Include="Infrastructure\Register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\UserService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Codesmith.MvcSample.BusinessObjects\Codesmith.MvcSample.BusinessObjects.csproj">
+      <Project>{d0ad8926-8535-4eee-8657-32fe1f2d8738}</Project>
+      <Name>Codesmith.MvcSample.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Codesmith.MvcSample.DataAccess\Codesmith.MvcSample.DataAccess.csproj">
+      <Project>{8a9791c3-ace6-4639-ad4e-8ee80a0e2ef3}</Project>
+      <Name>Codesmith.MvcSample.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

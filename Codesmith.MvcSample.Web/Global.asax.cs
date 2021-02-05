@@ -6,11 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Codesmith.MvcSample.Services;
+using Codesmith.MvcSample.Services.Contracts;
+using Codesmith.MvcSample.Services.Infrastructure;
+using Codesmith.MvcSample.Web.Infrastructure;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
-using Codesmith.MvcSample.Web.Core.Infrastructure;
-using Codesmith.MvcSample.Services;
 
 namespace Codesmith.MvcSample.Web
 {
@@ -45,6 +47,9 @@ namespace Codesmith.MvcSample.Web
 
             // Automapper
             container.RegisterSingleton(() => GetMapper(container));
+
+            // Register Service Dependencies
+            Register.RegisterServices(container);
 
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());

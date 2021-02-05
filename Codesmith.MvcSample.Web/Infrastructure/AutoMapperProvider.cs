@@ -2,7 +2,7 @@
 using AutoMapper.Configuration;
 using SimpleInjector;
 
-namespace Codesmith.MvcSample.Web.Core.InfrastructureC:\Projects\Codesmith.MvcSample\Codesmith.MvcSample.Web.Core\Infrastructure\MappingProvider.cs
+namespace Codesmith.MvcSample.Web.Infrastructure
 {
     public class AutoMapperProvider
     {

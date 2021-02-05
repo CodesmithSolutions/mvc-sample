@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Codesmith.MvcSample.Services
+namespace Codesmith.MvcSample.DataAccess.Contracts
 {
-    public interface IUserService
+    public interface IUserRepository
     {
-        void GetUserById(int userId);
     }
 }
