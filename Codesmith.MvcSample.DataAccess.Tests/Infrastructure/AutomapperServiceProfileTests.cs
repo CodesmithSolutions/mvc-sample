@@ -83,5 +83,39 @@ namespace Codesmith.MvcSample.DataAccess.Tests.Infrastructure
             issueDto.CreateDate.ShouldEqual(issueEntity.CreateDate);
             issueDto.LastUpdateDate.ShouldEqual(issueEntity.LastUpdateDate);
         }
+
+        [Test]
+        public void AutoMapper_UserEntityWithIssues_Maps_ToDto_ShouldBeValid()
+        {
+            var userEntity = new UserEntity
+            {
+                UserId = 1234,
+                Username = "john.doe",
+                Issues = new List<IssueEntity>
+                {
+                    new IssueEntity
+                    {
+                        IssueId =  1,
+                        Status = "Open",
+                    },
+                    new IssueEntity
+                    {
+                        IssueId = 2,
+                        Status = "InProgress"
+                    }
+                }
+            };
+
+            var userDto = _mapper.Map<UserDto>(userEntity);
+
+            userDto.UserId.ShouldEqual(userEntity.UserId);
+            userDto.Username.ShouldEqual(userEntity.Username);
+            userDto.Issues.Count.ShouldEqual(2);
+            userDto.Issues[0].IssueId.ShouldEqual(1);
+            userDto.Issues[0].Status.ShouldEqual(IssueStatusType.Open);
+            userDto.Issues[1].IssueId.ShouldEqual(2);
+            userDto.Issues[1].Status.ShouldEqual(IssueStatusType.InProgress);
+        }
     }
 }
+

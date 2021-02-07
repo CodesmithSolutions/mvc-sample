@@ -15,5 +15,7 @@ namespace Codesmith.MvcSample.BusinessObjects
         public DateTime? LastLoginDate { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
+
+        public List<IssueDto> Issues { get; set; }
     }
 }
