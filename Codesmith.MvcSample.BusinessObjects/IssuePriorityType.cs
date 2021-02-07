@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Codesmith.MvcSample.DataAccess
+namespace Codesmith.MvcSample.BusinessObjects
 {
-    public class Class1
+    public enum IssuePriorityType
     {
+        Low = 1,
+        Medium = 2,
+        High = 3
     }
 }

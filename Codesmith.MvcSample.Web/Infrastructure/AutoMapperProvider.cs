@@ -20,7 +20,6 @@ namespace Codesmith.MvcSample.Web.Infrastructure
 
             mce.AddMaps(new[]
             {
-                "Codesmith.MvcSample.Web.Core",
                 "Codesmith.MvcSample.Services",
                 "Codesmith.MvcSample.DataAccess"
             });

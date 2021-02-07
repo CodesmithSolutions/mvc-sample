@@ -13,7 +13,8 @@ namespace Codesmith.MvcSample.Web.Controllers
         public UserController(IUserService userService)
         {
             _userService = userService;
-        }
 
+            var users = _userService.GetUsers();
+        }
     }
 }

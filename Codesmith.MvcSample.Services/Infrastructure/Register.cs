@@ -1,9 +1,6 @@
-﻿using SimpleInjector;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Codesmith.MvcSample.DataAccess;
+using Codesmith.MvcSample.DataAccess.Contracts;
+using SimpleInjector;
 
 namespace Codesmith.MvcSample.Services.Infrastructure
 {
@@ -11,7 +8,7 @@ namespace Codesmith.MvcSample.Services.Infrastructure
     {
         public static void RegisterServices(Container container)
         {
-
+            container.Register<IUserRepository, UserRepository>(Lifestyle.Scoped);
         }
     }
 }

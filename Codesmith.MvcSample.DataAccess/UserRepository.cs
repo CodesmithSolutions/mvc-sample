@@ -35,7 +35,7 @@ namespace Codesmith.MvcSample.DataAccess
             using (var context = new DatabaseContext())
             {
                 return context.Users
-                    .FirstOrDefault(x => x.Id == userId)
+                    .FirstOrDefault(x => x.UserId == userId)
                     .ToDto(_mapper);
             }
         }
@@ -47,7 +47,8 @@ namespace Codesmith.MvcSample.DataAccess
                 var users = context.Users.AsQueryable();
                 if (isActiveOnly)
                     users = users.Where(x => x.IsActive == true);
-                
+
+                var xx = users.ToList();
                 return users
                     .ToList()
                     .Select(x => x.ToDto(_mapper))
@@ -60,7 +61,7 @@ namespace Codesmith.MvcSample.DataAccess
             using (var context = new DatabaseContext())
             {
                 var entity = context.Users
-                    .FirstOrDefault(x => x.Id == user.Id);
+                    .FirstOrDefault(x => x.UserId == user.UserId);
 
                 if (entity == null)
                     return null;

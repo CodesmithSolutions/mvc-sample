@@ -8,10 +8,11 @@ namespace Codesmith.MvcSample.BusinessObjects
 {
     public class UserDto
     {
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
-        public Byte[] PasswordHash { get; set; }
-        public DateTime LastLoginDate { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime? LastLoginDate { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
     }

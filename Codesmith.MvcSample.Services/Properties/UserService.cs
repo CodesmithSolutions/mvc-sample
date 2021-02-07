@@ -20,7 +20,7 @@ namespace Codesmith.MvcSample.Services
 
         public List<UserDto> GetUsers()
         {
-            throw new NotImplementedException();
+            return _userRepository.GetUsers(true);
         }
 
         public bool UserExists(string username)
