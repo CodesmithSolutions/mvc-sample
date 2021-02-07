@@ -140,6 +140,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StartupConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -147,11 +148,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AutoMapperProvider.cs" />
+    <Compile Include="Infrastructure\UserModelBuilder.cs" />
+    <Compile Include="Infrastructure\MenuModelBuilder.cs" />
     <Compile Include="Models\BasePageModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\DocumentViewModel.cs" />
     <Compile Include="Models\DocumentsViewModel.cs" />
     <Compile Include="Models\SampleData.cs" />
+    <Compile Include="Models\EditUserModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\DocumentModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
@@ -199,6 +203,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Document\Index.cshtml" />
     <Content Include="Views\Document\Edit.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

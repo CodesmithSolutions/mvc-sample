@@ -6,7 +6,7 @@ using Codesmith.MvcSample.Web.Models;
 
 namespace Codesmith.MvcSample.Web.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private readonly IUserService _userService;
 
@@ -14,7 +14,33 @@ namespace Codesmith.MvcSample.Web.Controllers
         {
             _userService = userService;
 
-            var users = _userService.GetUsers();
+            
         }
+
+
+        public ActionResult Index()
+        {
+            //var users = _userService.GetUsers();
+            return View("Index");
+        }
+
+        public ActionResult Edit()
+        {
+            var model = new EditUserModel();
+            return View("Edit", model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser(EditUserModel user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit", user);
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
