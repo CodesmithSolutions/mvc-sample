@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codesmith.MvcSample.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codesmith.MvcSample.DataAccess.Tests", "Codesmith.MvcSample.DataAccess.Tests\Codesmith.MvcSample.DataAccess.Tests.csproj", "{E51FCBFD-45D5-4360-BAE8-D2C4BDD68353}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codesmith.MvcSample.Services.Tests", "Codesmith.MvcSample.Services.Tests\Codesmith.MvcSample.Services.Tests.csproj", "{538A2479-0D4B-449E-A427-149EF9A5B923}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{E51FCBFD-45D5-4360-BAE8-D2C4BDD68353}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E51FCBFD-45D5-4360-BAE8-D2C4BDD68353}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E51FCBFD-45D5-4360-BAE8-D2C4BDD68353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538A2479-0D4B-449E-A427-149EF9A5B923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538A2479-0D4B-449E-A427-149EF9A5B923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538A2479-0D4B-449E-A427-149EF9A5B923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538A2479-0D4B-449E-A427-149EF9A5B923}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{D0AD8926-8535-4EEE-8657-32FE1F2D8738} = {1B89DD30-759D-4F85-A280-10846D3BEA67}
 		{AAFDA869-5CFE-4E62-AABD-C5BF5C271B5B} = {1B89DD30-759D-4F85-A280-10846D3BEA67}
 		{E51FCBFD-45D5-4360-BAE8-D2C4BDD68353} = {EBBA19F6-FDC8-4BF4-AA54-B97C49953580}
+		{538A2479-0D4B-449E-A427-149EF9A5B923} = {EBBA19F6-FDC8-4BF4-AA54-B97C49953580}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9534A1F6-A1BF-4DF3-97BD-2054045FDC9A}
