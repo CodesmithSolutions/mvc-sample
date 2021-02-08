@@ -48,7 +48,6 @@ namespace Codesmith.MvcSample.DataAccess
                 if (isActiveOnly)
                     users = users.Where(x => x.IsActive == true);
 
-                var xx = users.ToList();
                 return users
                     .ToList()
                     .Select(x => x.ToDto(_mapper))
@@ -66,7 +65,7 @@ namespace Codesmith.MvcSample.DataAccess
                 if (entity == null)
                     return null;
 
-                entity = _mapper.Map<UserEntity>(user);
+                _mapper.Map(user, entity);
                 context.SaveChanges();
 
                 return user;

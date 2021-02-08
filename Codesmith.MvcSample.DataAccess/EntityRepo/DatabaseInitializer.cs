@@ -12,12 +12,12 @@ namespace Codesmith.MvcSample.DataAccess.EntityRepo
     {
         protected override void Seed(DatabaseContext context)
         {
-            var sha512CrytoProvider = new SHA512CryptoServiceProvider();
+            var sha512CryptoProvider = new SHA512CryptoServiceProvider();
 
             var user = new UserEntity
             {
                 Username = "john.doe",
-                PasswordHash = sha512CrytoProvider.ComputeHash(Encoding.ASCII.GetBytes("Password123")),
+                PasswordHash = sha512CryptoProvider.ComputeHash(Encoding.ASCII.GetBytes("Password123")),
                 IsActive = true,
                 CreateDate = DateTime.Now,
                 LastUpdateDate = DateTime.Now

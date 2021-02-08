@@ -1,5 +1,6 @@
-﻿@{
-    @model Codesmith.MvcSample.Web.Models.BasePageModel
+﻿@using Codesmith.MvcSample.Web.Models
+@{
+    var menuModel = ViewBag.Menu as List<MenuModel> ?? new List<MenuModel>();
 }
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                @foreach (var menuItem in Model.Menu)
+                @foreach (var menuItem in menuModel)
                 {
                     <li><a href="@menuItem.Url">@menuItem.Name</a></li>
                 }

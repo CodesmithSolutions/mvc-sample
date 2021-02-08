@@ -1,8 +1,30 @@
 ﻿@{
-   // @model Codesmith.MvcSample.Web.Models.DocumentsViewModel
+   @model List<Codesmith.MvcSample.Web.Models.UserModel>
 }
 
 <h1>Users</h1>
-
+<a href="/users/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New</a>
+<div class="container-fluid">
+		
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>IsActive</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.IsActive</td>
+                <td><a href="/users/@user.UserId" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
 
 

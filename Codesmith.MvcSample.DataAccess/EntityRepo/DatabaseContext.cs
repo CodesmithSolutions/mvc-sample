@@ -7,6 +7,7 @@ namespace Codesmith.MvcSample.DataAccess.EntityRepo
     {
         public DatabaseContext() : base("name=MvcSample")
         {
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

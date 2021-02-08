@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Codesmith.MvcSample.Web.Models
 {
-    public class HomeViewModel : BasePageModel
+    public class HomeViewModel
     {
     }
 }

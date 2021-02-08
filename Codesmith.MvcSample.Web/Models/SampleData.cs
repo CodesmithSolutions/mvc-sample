@@ -18,8 +18,8 @@ namespace Codesmith.MvcSample.Web.Models
                 },
                 new MenuModel
                 {
-                    Name = "Documents",
-                    Url = "/document"
+                    Name = "Users",
+                    Url = "/users"
                 }
             };
         }

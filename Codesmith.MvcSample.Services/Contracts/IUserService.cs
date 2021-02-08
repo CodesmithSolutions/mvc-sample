@@ -9,7 +9,7 @@ namespace Codesmith.MvcSample.Services.Contracts
 {
     public interface IUserService
     {
-        void GetUserById(int userId);
+        UserDto GetUserById(int userId);
 
         List<UserDto> GetUsers();
 

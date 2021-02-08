@@ -7,9 +7,9 @@ using Codesmith.MvcSample.DataAccess.EntityRepo;
 
 namespace Codesmith.MvcSample.DataAccess.Infrastructure
 {
-    public class AutoMapperServiceProfile : Profile
+    public class AutoMapperEntityProfile : Profile
     {
-        public AutoMapperServiceProfile()
+        public AutoMapperEntityProfile()
         {
             // Entity to Dto Mappings
             CreateMap<UserEntity, UserDto>();
@@ -17,7 +17,7 @@ namespace Codesmith.MvcSample.DataAccess.Infrastructure
 
             // Dto to entity Mappings
             CreateMap<UserDto, UserEntity>()
-                .ForMember(dest => dest.UserProfile, opt => opt.Ignore())
+                //.ForMember(dest => dest.UserProfile, opt => opt.Ignore())
                 .ForMember(dest => dest.Issues, opt => opt.Ignore());
             CreateMap<IssueDto, IssueEntity>()
                 .ForMember(dest => dest.Status,

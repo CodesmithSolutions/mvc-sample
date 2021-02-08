@@ -10,11 +10,13 @@ namespace Codesmith.MvcSample.Web.Controllers
         {
             base.OnActionExecuted(filterContext);
 
-            if (filterContext.Controller.ViewData.Model is BasePageModel model)
-            {
-                model.Menu = SampleData.GetMenu();
-                //model.User = xxxx;
-            }
+            filterContext.Controller.ViewBag.Menu = SampleData.GetMenu();
+
+            //if (filterContext.Controller.ViewData.Model is BasePageModel model)
+            //{
+            //    model.Menu = SampleData.GetMenu();
+            //    model.User = xxxx;
+            //}
         }
     }
 }

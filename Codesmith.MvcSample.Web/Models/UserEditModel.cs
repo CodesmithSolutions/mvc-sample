@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Codesmith.MvcSample.Web.Infrastructure;
 
 namespace Codesmith.MvcSample.Web.Models
 {
-    public class EditUserModel : BasePageModel
+    public class UserEditModel
     {
         [Required]
         public int UserId { get; set; }

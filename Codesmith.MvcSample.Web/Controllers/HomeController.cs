@@ -7,16 +7,11 @@ using Codesmith.MvcSample.Web.Models;
 
 namespace Codesmith.MvcSample.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            var model = new HomeViewModel
-            {
-                Menu = SampleData.GetMenu()
-            };
-
-            return View(model);
+            return View();
         }
 
         public ActionResult About()

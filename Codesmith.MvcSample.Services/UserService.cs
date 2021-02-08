@@ -20,7 +20,7 @@ namespace Codesmith.MvcSample.Services
 
         public List<UserDto> GetUsers()
         {
-            return _userRepository.GetUsers(true);
+            return _userRepository.GetUsers(false);
         }
 
         public bool UserExists(string username)
@@ -30,17 +30,21 @@ namespace Codesmith.MvcSample.Services
 
         public UserDto CreateUser(UserDto userDto)
         {
-            throw new NotImplementedException();
+            userDto.CreateDate = DateTime.Now;
+            userDto.LastUpdateDate = DateTime.Now;
+            return _userRepository.CreateUser(userDto);
         }
 
         public UserDto UpdateUser(UserDto userDto)
         {
-            throw new NotImplementedException();
+            userDto.CreateDate = DateTime.Now;
+            userDto.LastUpdateDate = DateTime.Now;
+            return _userRepository.UpdateUser(userDto);
         }
 
-        public void GetUserById(int userId)
+        public UserDto GetUserById(int userId)
         {
-            throw new NotImplementedException();
+            return _userRepository.GetUserById(userId);
         }
     }
 }

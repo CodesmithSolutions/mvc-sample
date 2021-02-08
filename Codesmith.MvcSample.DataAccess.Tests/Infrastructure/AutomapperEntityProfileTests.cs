@@ -13,7 +13,7 @@ using Should;
 namespace Codesmith.MvcSample.DataAccess.Tests.Infrastructure
 {
     [TestFixture]
-    public class AutoMapperServiceProfileTests
+    public class AutoMapperEntityProfileTests
     {
         private MapperConfiguration _mapperConfiguration;
         private IMapper _mapper;
@@ -21,7 +21,7 @@ namespace Codesmith.MvcSample.DataAccess.Tests.Infrastructure
         [SetUp]
         public void Setup()
         {
-            _mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperServiceProfile>());
+            _mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperEntityProfile>());
             _mapper = _mapperConfiguration.CreateMapper();
         }
 

@@ -139,7 +139,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\StartupConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
@@ -147,15 +146,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AutoMapperModelProfile.cs" />
     <Compile Include="Infrastructure\AutoMapperProvider.cs" />
-    <Compile Include="Infrastructure\UserModelBuilder.cs" />
-    <Compile Include="Infrastructure\MenuModelBuilder.cs" />
-    <Compile Include="Models\BasePageModel.cs" />
+    <Compile Include="Infrastructure\UserExistsAttribute.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
-    <Compile Include="Models\DocumentViewModel.cs" />
-    <Compile Include="Models\DocumentsViewModel.cs" />
     <Compile Include="Models\SampleData.cs" />
-    <Compile Include="Models\EditUserModel.cs" />
+    <Compile Include="Models\UserEditModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\DocumentModel.cs" />
     <Compile Include="Models\MenuModel.cs" />

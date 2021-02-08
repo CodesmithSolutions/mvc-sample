@@ -15,31 +15,20 @@ namespace Codesmith.MvcSample.Web.Controllers
 
         public ActionResult Index()
         {
-            //_userService.GetUserProfile("Test");
-            var model = new DocumentsViewModel
-            {
-                Menu = SampleData.GetMenu()
-            };
-
-            return View(model);
+            return View("Index");
         }
 
         public ActionResult Edit()
         {
-            var model = new DocumentViewModel
-            {
-                Menu = SampleData.GetMenu()
-            };
-            return View("Edit", model);
+            return View("Edit");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditDocument(DocumentViewModel model)
+        public ActionResult EditDocument(DocumentModel model)
         {
             if (!ModelState.IsValid)
             {
-                model.Menu = SampleData.GetMenu();
                 return View("Edit", model);
             }
 

@@ -44,10 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\Contracts\IUserService.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Infrastructure\Register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\UserService.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Codesmith.MvcSample.BusinessObjects\Codesmith.MvcSample.BusinessObjects.csproj">
