@@ -18,16 +18,21 @@ namespace Codesmith.MvcSample.DataAccess.EntityRepo
         [StringLength(255)]
         public string Title { get; set; }
         public string Description { get; set; }
-        [ForeignKey("CreatedBy")]
+        
         public int CreatedByUserId { get; set; }
-        [ForeignKey("AssignedTo")]
+
         public int? AssignedToUserId { get; set; }
         [Required]
         public DateTime CreateDate { get; set; }
         [Required]
         public DateTime LastUpdateDate { get; set; }
 
+        [ForeignKey("CreatedByUserId")]
+        [InverseProperty("CreatedBy")]
         public virtual UserEntity CreatedBy { get; set; }
+
+        [ForeignKey("AssignedToUserId")]
+        [InverseProperty("AssignedTo")]
         public virtual UserEntity AssignedTo { get; set; }
     }
 }
