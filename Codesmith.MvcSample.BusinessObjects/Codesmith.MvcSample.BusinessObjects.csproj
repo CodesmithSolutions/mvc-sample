@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="IssueStatusType.cs" />
     <Compile Include="IssuePriorityType.cs" />
+    <Compile Include="UserProfileDto.cs" />
+    <Compile Include="UserRoleType.cs" />
     <Compile Include="IssueType.cs" />
     <Compile Include="IssueDto.cs" />
     <Compile Include="UserDto.cs" />

@@ -14,12 +14,17 @@ namespace Codesmith.MvcSample.DataAccess.EntityRepo
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
         public bool IsActive { get; set; }
+        //public string Role { get; set; }
         public DateTime? LastLoginDate { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
 
-        //public virtual UserProfileEntity UserProfile { get; set; }
 
-        public virtual ICollection<IssueEntity> Issues { get; set; }
+        public virtual UserProfileEntity Profile { get; set; }
+
+        public virtual ICollection<IssueEntity> CreatedBy { get; set; }
+
+        public virtual ICollection<IssueEntity> AssignedTo { get; set; }
+
     }
 }

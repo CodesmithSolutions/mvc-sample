@@ -140,6 +140,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -148,10 +150,19 @@
     </Compile>
     <Compile Include="Infrastructure\AutoMapperModelProfile.cs" />
     <Compile Include="Infrastructure\AutoMapperProvider.cs" />
+    <Compile Include="Infrastructure\Extensions\IssuePriorityExtension.cs" />
+    <Compile Include="Infrastructure\Helpers\UserSelectListHelper.cs" />
+    <Compile Include="Infrastructure\Helpers\IssueTypeHelpers.cs" />
+    <Compile Include="Infrastructure\Helpers\IssueStatusTypeHelpers.cs" />
+    <Compile Include="Infrastructure\Helpers\IssuePriorityTypeHelpers.cs" />
     <Compile Include="Infrastructure\UserExistsAttribute.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\IssueModel.cs" />
     <Compile Include="Models\SampleData.cs" />
+    <Compile Include="Models\IssueSimpleModel.cs" />
+    <Compile Include="Models\UserRegisterModel.cs" />
     <Compile Include="Models\UserEditModel.cs" />
+    <Compile Include="Models\UserLoginModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\DocumentModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
@@ -201,6 +212,11 @@
     <Content Include="Views\Document\Edit.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Issue\Edit.cshtml" />
+    <Content Include="Views\Issue\Index.cshtml" />
+    <Content Include="Views\Issue\Assign.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,9 +3,11 @@ using Codesmith.MvcSample.DataAccess.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Codesmith.MvcSample.BusinessObjects;
+using Codesmith.MvcSample.DataAccess;
 
 namespace Codesmith.MvcSample.Services
 {
@@ -18,9 +20,24 @@ namespace Codesmith.MvcSample.Services
             _userRepository = userRepository;
         }
 
-        public List<UserDto> GetUsers()
+        public List<UserDto> GetUsers(bool isActiveOnly)
         {
-            return _userRepository.GetUsers(false);
+            return _userRepository.GetUsers(isActiveOnly);
+        }
+
+        public bool VerifyUser(string username, string password)
+        {
+            var sha512CryptoProvider = new SHA512CryptoServiceProvider();
+            var userEnteredPassword = Convert.ToBase64String(sha512CryptoProvider.ComputeHash(Encoding.ASCII.GetBytes(password)));
+
+            var user = _userRepository.GetUserByUsername(username);
+            if (user == null)
+                return false;
+
+            if (Convert.ToBase64String(user.PasswordHash) == userEnteredPassword)
+                return true;
+
+            return false;
         }
 
         public bool UserExists(string username)

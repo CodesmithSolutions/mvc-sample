@@ -7,6 +7,7 @@ using Codesmith.MvcSample.Web.Models;
 
 namespace Codesmith.MvcSample.Web.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
         public ActionResult Index()

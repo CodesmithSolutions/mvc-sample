@@ -18,7 +18,5 @@ namespace Codesmith.MvcSample.BusinessObjects
         public UserDto CreatedBy { get; set; }
         public UserDto AssignedTo { get; set; }
         public int? AssignedToUserId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime LastUpdateDate { get; set; }
     }
 }

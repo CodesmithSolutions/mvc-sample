@@ -18,6 +18,11 @@ namespace Codesmith.MvcSample.Web.Models
                 },
                 new MenuModel
                 {
+                    Name = "Issues",
+                    Url = "/issues"
+                },
+                new MenuModel
+                {
                     Name = "Users",
                     Url = "/users"
                 }

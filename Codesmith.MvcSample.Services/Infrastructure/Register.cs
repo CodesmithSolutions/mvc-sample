@@ -9,6 +9,7 @@ namespace Codesmith.MvcSample.Services.Infrastructure
         public static void RegisterServices(Container container)
         {
             container.Register<IUserRepository, UserRepository>(Lifestyle.Scoped);
+            container.Register<IIssueRepository, IssueRepository>(Lifestyle.Scoped);
         }
     }
 }

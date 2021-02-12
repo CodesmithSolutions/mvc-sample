@@ -67,9 +67,7 @@ namespace Codesmith.MvcSample.DataAccess.Tests.Infrastructure
                 Status = "Open",
                 Priority = "High",
                 AssignedToUserId = 1,
-                CreatedByUserId = 2,
-                CreateDate = new DateTime(2020, 5, 1, 2, 34, 15),
-                LastUpdateDate = new DateTime(2021, 3, 6, 11, 43, 25),
+                CreatedByUserId = 2
             };
 
             var issueDto = _mapper.Map<IssueDto>(issueEntity);
@@ -80,18 +78,22 @@ namespace Codesmith.MvcSample.DataAccess.Tests.Infrastructure
             issueDto.Priority.ShouldEqual(IssuePriorityType.High);
             issueDto.AssignedToUserId.ShouldEqual(issueEntity.AssignedToUserId);
             issueDto.CreatedByUserId.ShouldEqual(issueEntity.CreatedByUserId);
-            issueDto.CreateDate.ShouldEqual(issueEntity.CreateDate);
-            issueDto.LastUpdateDate.ShouldEqual(issueEntity.LastUpdateDate);
         }
 
         [Test]
-        public void AutoMapper_UserEntityWithIssues_Maps_ToDto_ShouldBeValid()
+        public void AutoMapper_UserEntityWithProfileAndCreatedByIssues_Maps_ToDto_ShouldBeValid()
         {
             var userEntity = new UserEntity
             {
                 UserId = 1234,
                 Username = "john.doe",
-                Issues = new List<IssueEntity>
+                Profile = new UserProfileEntity
+                {
+                    FirstName = "John",
+                    LastName = "Doe",
+                    EmailAddress = "john.doe@fake.com"
+                },
+                CreatedBy = new List<IssueEntity>
                 {
                     new IssueEntity
                     {
@@ -110,11 +112,15 @@ namespace Codesmith.MvcSample.DataAccess.Tests.Infrastructure
 
             userDto.UserId.ShouldEqual(userEntity.UserId);
             userDto.Username.ShouldEqual(userEntity.Username);
-            userDto.Issues.Count.ShouldEqual(2);
-            userDto.Issues[0].IssueId.ShouldEqual(1);
-            userDto.Issues[0].Status.ShouldEqual(IssueStatusType.Open);
-            userDto.Issues[1].IssueId.ShouldEqual(2);
-            userDto.Issues[1].Status.ShouldEqual(IssueStatusType.InProgress);
+            userDto.Profile.ShouldNotBeNull();
+            userDto.Profile.FirstName.ShouldEqual("John");
+            userDto.Profile.LastName.ShouldEqual("John");
+            userDto.Profile.EmailAddress.ShouldEqual("john.doe@fake.com");
+            userDto.CreatedBy.Count.ShouldEqual(2);
+            userDto.CreatedBy[0].IssueId.ShouldEqual(1);
+            userDto.CreatedBy[0].Status.ShouldEqual(IssueStatusType.Open);
+            userDto.CreatedBy[1].IssueId.ShouldEqual(2);
+            userDto.CreatedBy[1].Status.ShouldEqual(IssueStatusType.InProgress);
         }
     }
 }

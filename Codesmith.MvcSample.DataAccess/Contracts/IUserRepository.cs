@@ -12,6 +12,7 @@ namespace Codesmith.MvcSample.DataAccess.Contracts
         bool CheckUserExists(string username);
 
         UserDto GetUserById(int userId);
+        UserDto GetUserByUsername(string username);
         List<UserDto> GetUsers(bool isActiveOnly);
         UserDto UpdateUser(UserDto user);
         UserDto CreateUser(UserDto user);

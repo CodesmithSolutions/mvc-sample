@@ -1,0 +1,41 @@
+﻿@using Codesmith.MvcSample.Web.Infrastructure.Extensions;
+@{
+    @model List<Codesmith.MvcSample.Web.Models.IssueSimpleModel>
+}
+
+<h1>Issues</h1>
+<a href="/issues/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New</a>
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Assigned To</th>
+            <th>Created By</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var issue in Model)
+        {
+            <tr>
+                <td>@issue.IssueId</td>
+                <td>@issue.Status</td>
+                <td style="color:@issue.Priority.ColorFormatting()">@issue.Priority</td>
+                <td>@issue.Type</td>
+                <td>@issue.Title</td>
+                <td>@issue.AssignedTo</td>
+                <td>@issue.CreatedBy</td>
+                <td><a href="/issues/@issue.IssueId" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a></td>
+                <td><a href="/issues/@issue.IssueId/assign" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Assign</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+

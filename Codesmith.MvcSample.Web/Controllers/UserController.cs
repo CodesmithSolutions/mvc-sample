@@ -22,7 +22,7 @@ namespace Codesmith.MvcSample.Web.Controllers
         [HttpGet, Route("users")]
         public ActionResult Index()
         {
-            var users = _userService.GetUsers();
+            var users = _userService.GetUsers(false);
             return View("Index", _mapper.Map<List<UserModel>>(users));
         }
 

@@ -12,12 +12,20 @@ namespace Codesmith.MvcSample.DataAccess.Infrastructure.Extensions
         {
             return mapper.Map<UserEntity, UserDto>(user);
         }
+        public static IssueDto ToDto(this IssueEntity issue, IMapper mapper)
+        {
+            return mapper.Map<IssueEntity, IssueDto>(issue);
+        }
 
 
         // DTO to Entity Mapping Extensions
         public static UserEntity ToEntity(this UserDto user, IMapper mapper)
         {
             return mapper.Map<UserDto, UserEntity>(user);
+        }
+        public static IssueEntity ToEntity(this IssueDto issue, IMapper mapper)
+        {
+            return mapper.Map<IssueDto, IssueEntity>(issue);
         }
 
         //public static UserProfile ToDto(this UserProfileEntity user, IMapper mapper)

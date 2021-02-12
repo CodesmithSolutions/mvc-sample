@@ -44,6 +44,7 @@ namespace Codesmith.MvcSample.Web
             
             // Injectable service
             container.Register<IUserService, UserService>(Lifestyle.Scoped);
+            container.Register<IIssueService, IssueService>(Lifestyle.Scoped);
 
             // Automapper
             container.RegisterSingleton(() => GetMapper(container));

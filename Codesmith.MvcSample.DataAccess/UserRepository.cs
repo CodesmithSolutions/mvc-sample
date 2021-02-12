@@ -40,6 +40,16 @@ namespace Codesmith.MvcSample.DataAccess
             }
         }
 
+        public UserDto GetUserByUsername(string username)
+        {
+            using (var context = new DatabaseContext())
+            {
+                return context.Users
+                    .FirstOrDefault(x => x.Username == username)
+                    .ToDto(_mapper);
+            }
+        }
+
         public List<UserDto> GetUsers(bool isActiveOnly)
         {
             using (var context = new DatabaseContext())
@@ -49,6 +59,8 @@ namespace Codesmith.MvcSample.DataAccess
                     users = users.Where(x => x.IsActive == true);
 
                 return users
+                    .Include(x => x.Profile)
+                    .Include(x => x.AssignedTo)
                     .ToList()
                     .Select(x => x.ToDto(_mapper))
                     .ToList();

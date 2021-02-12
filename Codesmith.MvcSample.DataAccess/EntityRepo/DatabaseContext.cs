@@ -26,7 +26,7 @@ namespace Codesmith.MvcSample.DataAccess.EntityRepo
         }
 
         public DbSet<UserEntity> Users { get; set; }
-        //public DbSet<UserProfileEntity> UserProfiles { get; set; }
+        public DbSet<UserProfileEntity> UserProfiles { get; set; }
         public DbSet<IssueEntity> Issues { get; set; }
     }
 }
