@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using Codesmith.MvcSample.BusinessObjects;
 
 namespace Codesmith.MvcSample.Web.Models
@@ -8,8 +9,9 @@ namespace Codesmith.MvcSample.Web.Models
         [Required]
         public int UserId { get; set; }
         [Required, MinLength(3), MaxLength(255)]
+        [Remote("IsUsernameAvailable", "User", AdditionalFields = "UserId", ErrorMessage = "E-mail already in use")]
         public string Username { get; set; }
-        [Required, Compare("Password"), MinLength(6), MaxLength(255)]
+        [Required, System.ComponentModel.DataAnnotations.Compare("Password"), MinLength(6), MaxLength(255)]
         //public UserRoleType Role { get; set; }
 
         public string Password { get; set; }

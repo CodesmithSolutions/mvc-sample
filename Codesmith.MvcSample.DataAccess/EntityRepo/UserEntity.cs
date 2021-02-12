@@ -11,6 +11,7 @@ namespace Codesmith.MvcSample.DataAccess.EntityRepo
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         [Required, StringLength(100)]
+        [Index(IsClustered = false, IsUnique = true)]
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
         public bool IsActive { get; set; }

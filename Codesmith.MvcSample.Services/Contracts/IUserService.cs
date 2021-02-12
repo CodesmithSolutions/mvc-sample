@@ -15,6 +15,8 @@ namespace Codesmith.MvcSample.Services.Contracts
 
         List<UserDto> GetUsers(bool activeOnly);
 
+        bool DoesUserExist(int userId, string username);
+
         bool UserExists(string username);
 
         UserDto CreateUser(UserDto userDto);

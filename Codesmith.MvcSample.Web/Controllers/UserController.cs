@@ -55,5 +55,12 @@ namespace Codesmith.MvcSample.Web.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public JsonResult IsUsernameAvailable(int userId, string username)
+        {
+            // Check if the username already exists
+            return Json(!_userService.DoesUserExist(userId, username), JsonRequestBehavior.AllowGet);
+        }
     }
 }

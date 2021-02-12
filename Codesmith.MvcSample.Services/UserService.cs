@@ -25,6 +25,15 @@ namespace Codesmith.MvcSample.Services
             return _userRepository.GetUsers(isActiveOnly);
         }
 
+        public bool DoesUserExist(int userId, string username)
+        {
+            var user = _userRepository.GetUserByUsername(username);
+            if (user == null)
+                return false;
+
+            return userId != user.UserId;
+        }
+
         public bool VerifyUser(string username, string password)
         {
             var sha512CryptoProvider = new SHA512CryptoServiceProvider();
