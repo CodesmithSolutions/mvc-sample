@@ -4,6 +4,7 @@ using Codesmith.MvcSample.Web.Models;
 
 namespace Codesmith.MvcSample.Web.Controllers
 {
+    [Authorize]
     public class BaseController : Controller
     {
         protected override void OnActionExecuted(ActionExecutedContext filterContext)

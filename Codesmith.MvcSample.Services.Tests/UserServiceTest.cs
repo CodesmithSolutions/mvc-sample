@@ -27,7 +27,7 @@ namespace Codesmith.MvcSample.Services.Tests
             var service = new UserService(userRepositoryMock.Object);
 
             var result = service.VerifyUser("test@fake.com", "Password123");
-            result.ShouldBeFalse();
+            result.ShouldBeNull();
 
             userRepositoryMock.Verify(x => x.GetUserByUsername("test@fake.com"), Times.Once());
         }
@@ -43,7 +43,7 @@ namespace Codesmith.MvcSample.Services.Tests
             var service = new UserService(userRepositoryMock.Object);
 
             var result = service.VerifyUser("test@fake.com", "SomeWrongPassword");
-            result.ShouldBeFalse();
+            result.ShouldBeNull();
 
             userRepositoryMock.Verify(x => x.GetUserByUsername("test@fake.com"), Times.Once());
         }
@@ -67,7 +67,10 @@ namespace Codesmith.MvcSample.Services.Tests
 
             var result = service.VerifyUser("test@fake.com", "Password123");
 
-            result.ShouldBeTrue();
+            result.ShouldNotBeNull();
+
+            result.UserId.ShouldEqual(12);
+            result.Username.ShouldEqual("test@fake.com");
 
             userRepositoryMock.Verify(x => x.GetUserByUsername("test@fake.com"), Times.Once());
         }

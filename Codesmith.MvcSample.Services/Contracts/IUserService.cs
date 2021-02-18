@@ -11,7 +11,7 @@ namespace Codesmith.MvcSample.Services.Contracts
     {
         UserDto GetUserById(int userId);
 
-        bool VerifyUser(string username, string password);
+        UserDto VerifyUser(string username, string password);
 
         List<UserDto> GetUsers(bool activeOnly);
 

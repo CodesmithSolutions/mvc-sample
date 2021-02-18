@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Web.Mvc;
 using AutoMapper;
 using Codesmith.MvcSample.BusinessObjects;
@@ -23,7 +24,7 @@ namespace Codesmith.MvcSample.Web.Controllers
         public ActionResult Index()
         {
             var users = _userService.GetUsers(false);
-            return View("Index", _mapper.Map<List<UserModel>>(users));
+            return View("Index", _mapper.Map<List<UserListModel>>(users));
         }
 
         [HttpGet, Route("users/new")]
@@ -47,6 +48,11 @@ namespace Codesmith.MvcSample.Web.Controllers
             {
                 return View("Edit", user);
             }
+
+            //if (_userService.UserExists())
+            //{
+            //    ModelState.AddModelError("Username", "User Already Exists");
+            //}
 
             if(user.UserId == 0)
                 _userService.CreateUser(_mapper.Map<UserDto>(user));

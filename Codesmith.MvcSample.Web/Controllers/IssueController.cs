@@ -10,6 +10,7 @@ using Codesmith.MvcSample.Web.Models;
 
 namespace Codesmith.MvcSample.Web.Controllers
 {
+    [Authorize]
     public class IssueController : BaseController
     {
         private readonly IMapper _mapper;
@@ -23,7 +24,7 @@ namespace Codesmith.MvcSample.Web.Controllers
             _issueService = issueService;
         }
 
-        [HttpGet, Route("issues")]
+        [HttpGet, Route("issues", Name = "issues")]
         public ActionResult Index()
         {
             var issues = _issueService.GetIssues();
@@ -40,6 +41,7 @@ namespace Codesmith.MvcSample.Web.Controllers
         public ActionResult Edit(int issueId)
         {
             var issue = _issueService.GetIssueById(issueId);
+
             return View("Edit", _mapper.Map<IssueModel>(issue));
         }
 

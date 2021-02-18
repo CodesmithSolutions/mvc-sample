@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Security;
 using AutoMapper;
@@ -37,14 +38,30 @@ namespace Codesmith.MvcSample.Web.Controllers
             }
 
             var result = _userService.VerifyUser(model.Username, model.Password);
-            if (!result)
+            if (result != null)
             {
                 ModelState.AddModelError(string.Empty, "Invalid Login");
                 return View("Login", model);
             }
 
-            FormsAuthentication.SetAuthCookie(model.Username, true);
-            return RedirectToRoute("/users");
+            // create encryption cookie         
+            FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1,
+            model.Username, 
+            DateTime.Now,
+            DateTime.Now.AddDays(90),
+            true, 
+            string.Empty);
+
+            // add cookie to response stream         
+            string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+            System.Web.HttpCookie authCookie = new System.Web.HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+            if (authTicket.IsPersistent)
+            {
+                authCookie.Expires = authTicket.Expiration;
+            }
+            System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
+            //FormsAuthentication.SetAuthCookie(model.Username, true);
+            return RedirectToRoute("Index", "Home");
         }
 
         [HttpGet, Route("register")]

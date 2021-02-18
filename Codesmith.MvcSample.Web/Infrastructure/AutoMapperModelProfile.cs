@@ -14,7 +14,7 @@ namespace Codesmith.MvcSample.Web.Infrastructure
         public AutoMapperModelProfile()
         {
             // Model to Dto Mappings
-            CreateMap<UserModel, UserDto>()
+            CreateMap<UserListModel, UserDto>()
                 .ForMember(dest => dest.PasswordHash, opt => opt.Ignore())
                 .ForMember(dest => dest.LastLoginDate, opt => opt.Ignore())
                 .ForMember(dest => dest.CreateDate, opt => opt.Ignore())
@@ -37,7 +37,14 @@ namespace Codesmith.MvcSample.Web.Infrastructure
 
 
             // Dto to Model Mappings
-            CreateMap<UserDto, UserModel>();
+            CreateMap<UserDto, UserListModel>();
+            CreateMap<UserDto, UserLoggedInModel>()
+                .ForMember(dest => dest.Name,
+                    opt => opt.MapFrom(source =>
+                        source.Profile == null
+                            ? "-- Not Set --"
+                            : source.Profile.FirstName + " " + source.Profile.LastName));
+
             CreateMap<UserDto, UserEditModel>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore())
                 .ForMember(dest => dest.ConfirmPassword, opt => opt.Ignore());

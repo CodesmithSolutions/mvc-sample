@@ -1,0 +1,22 @@
+﻿@using Codesmith.MvcSample.Web.Infrastructure.Helpers
+@model Codesmith.MvcSample.Web.Models.IssueModel
+@{
+    var userSelectList = ViewBag.UserSelectList as SelectList;
+    Html.EnableClientValidation(true);
+}
+
+<h1>Assign Issue</h1>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { action = "/issues/assign" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IssueId)
+    <h2>@Model.Title</h2>
+    <div class="form-group">
+        @Html.LabelFor(model => model.AssignedToUserId)
+        @Html.DropDownListFor(model => model.AssignedToUserId, userSelectList, "Select Assignee", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.AssignedToUserId, "", new { @class = "text-danger" })
+    </div>
+    <input type="submit" value="Save" class="btn btn-default" />
+}

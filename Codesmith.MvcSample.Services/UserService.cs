@@ -34,19 +34,19 @@ namespace Codesmith.MvcSample.Services
             return userId != user.UserId;
         }
 
-        public bool VerifyUser(string username, string password)
+        public UserDto VerifyUser(string username, string password)
         {
             var sha512CryptoProvider = new SHA512CryptoServiceProvider();
             var userEnteredPassword = Convert.ToBase64String(sha512CryptoProvider.ComputeHash(Encoding.ASCII.GetBytes(password)));
 
             var user = _userRepository.GetUserByUsername(username);
             if (user == null)
-                return false;
+                return null;
 
             if (Convert.ToBase64String(user.PasswordHash) == userEnteredPassword)
-                return true;
+                return user;
 
-            return false;
+            return null;
         }
 
         public bool UserExists(string username)
