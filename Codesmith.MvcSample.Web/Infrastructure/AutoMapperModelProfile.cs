@@ -43,7 +43,9 @@ namespace Codesmith.MvcSample.Web.Infrastructure
                     opt => opt.MapFrom(source =>
                         source.Profile == null
                             ? "-- Not Set --"
-                            : source.Profile.FirstName + " " + source.Profile.LastName));
+                            : source.Profile.FirstName + " " + source.Profile.LastName))
+                .ForMember(dest => dest.Role, opt => opt.Ignore())
+                .ForMember(dest => dest.IsSidebarCollapsed, opt => opt.Ignore());
 
             CreateMap<UserDto, UserEditModel>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore())
