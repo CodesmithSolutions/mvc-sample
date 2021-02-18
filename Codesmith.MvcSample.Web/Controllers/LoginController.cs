@@ -38,7 +38,7 @@ namespace Codesmith.MvcSample.Web.Controllers
             }
 
             var result = _userService.VerifyUser(model.Username, model.Password);
-            if (result != null)
+            if (result == null)
             {
                 ModelState.AddModelError(string.Empty, "Invalid Login");
                 return View("Login", model);
@@ -61,7 +61,7 @@ namespace Codesmith.MvcSample.Web.Controllers
             }
             System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
             //FormsAuthentication.SetAuthCookie(model.Username, true);
-            return RedirectToRoute("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet, Route("register")]
