@@ -1,18 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Codesmith.MvcSample.BusinessObjects;
+﻿using Codesmith.MvcSample.Web.Infrastructure.Validators;
+using FluentValidation.Attributes;
 
 namespace Codesmith.MvcSample.Web.Models
 {
     public class UserRegisterModel
     {
-        [Required, MinLength(3), MaxLength(255)]
         public string Username { get; set; }
-
-        [Required, Compare("Password"), MinLength(6), MaxLength(255)]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EmailAddress { get; set; }
         public string Password { get; set; }
-
-        [Required, MinLength(6), MaxLength(255)]
-
         public string ConfirmPassword { get; set; }
     }
 }

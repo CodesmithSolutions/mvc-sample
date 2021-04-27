@@ -157,19 +157,30 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ApplicationValidatorFactory.cs" />
     <Compile Include="Infrastructure\AutoMapperModelProfile.cs" />
     <Compile Include="Infrastructure\AutoMapperProvider.cs" />
     <Compile Include="Infrastructure\Extensions\IssuePriorityExtension.cs" />
+    <Compile Include="Infrastructure\Helpers\IIssueStatusTypeHelper.cs" />
+    <Compile Include="Infrastructure\Helpers\IIssuePriorityTypeHelper.cs" />
+    <Compile Include="Infrastructure\Helpers\IIssueSelectListHelper.cs" />
+    <Compile Include="Infrastructure\Helpers\IssueSelectListHelper.cs" />
     <Compile Include="Infrastructure\Helpers\UserSelectListHelper.cs" />
     <Compile Include="Infrastructure\Helpers\IssueTypeHelpers.cs" />
-    <Compile Include="Infrastructure\Helpers\IssueStatusTypeHelpers.cs" />
-    <Compile Include="Infrastructure\Helpers\IssuePriorityTypeHelpers.cs" />
+    <Compile Include="Infrastructure\Helpers\IssueStatusTypeHelper.cs" />
+    <Compile Include="Infrastructure\Helpers\IssuePriorityTypeHelper.cs" />
+    <Compile Include="Infrastructure\SessionManager.cs" />
     <Compile Include="Infrastructure\UserExistsAttribute.cs" />
+    <Compile Include="Infrastructure\Validators\UserContactPreferenceValidator.cs" />
+    <Compile Include="Infrastructure\Validators\UserRegisterValidator.cs" />
+    <Compile Include="Infrastructure\Validators\UserLoginValidator.cs" />
+    <Compile Include="Models\ContactPreferenceMethodType.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\IssueModel.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Models\IssueSimpleModel.cs" />
     <Compile Include="Models\UserLoggedInModel.cs" />
+    <Compile Include="Models\UserContactPreferenceModel.cs" />
     <Compile Include="Models\UserRegisterModel.cs" />
     <Compile Include="Models\UserEditModel.cs" />
     <Compile Include="Models\UserLoginModel.cs" />
@@ -388,6 +399,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\Login\ContactPreferences.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

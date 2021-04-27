@@ -10,6 +10,9 @@ using Codesmith.MvcSample.Services;
 using Codesmith.MvcSample.Services.Contracts;
 using Codesmith.MvcSample.Services.Infrastructure;
 using Codesmith.MvcSample.Web.Infrastructure;
+using Codesmith.MvcSample.Web.Infrastructure.Helpers;
+using FluentValidation;
+using FluentValidation.Mvc;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
@@ -35,6 +38,8 @@ namespace Codesmith.MvcSample.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            FluentValidationModelValidatorProvider.Configure();
         }
 
         public void RegisterIoCContainer(Container container)
@@ -45,6 +50,7 @@ namespace Codesmith.MvcSample.Web
             // Injectable service
             container.Register<IUserService, UserService>(Lifestyle.Scoped);
             container.Register<IIssueService, IssueService>(Lifestyle.Scoped);
+            container.Register<IIssueSelectListHelper, IssueSelectListHelper>(Lifestyle.Scoped);
 
             // Automapper
             container.RegisterSingleton(() => GetMapper(container));
@@ -52,8 +58,21 @@ namespace Codesmith.MvcSample.Web
             // Register Service Dependencies
             Register.RegisterServices(container);
 
+            // Register the validators and factory
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
+            container.Register<IValidatorFactory, ApplicationValidatorFactory>(Lifestyle.Singleton);
+            container.Register(typeof(IValidator<>), assemblies);
+            
+            // Register Simple Injector validation factory in FV
+            FluentValidationModelValidatorProvider.Configure(provider =>
+            {
+                provider.ValidatorFactory = new ApplicationValidatorFactory(container);
+                    provider.AddImplicitRequiredValidator = false;
+                }
+            );
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+
             container.Verify();
         }
 

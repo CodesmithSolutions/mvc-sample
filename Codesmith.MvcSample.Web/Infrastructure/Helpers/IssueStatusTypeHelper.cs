@@ -7,18 +7,18 @@ using Codesmith.MvcSample.BusinessObjects;
 
 namespace Codesmith.MvcSample.Web.Infrastructure.Helpers
 {
-    public static class IssuePriorityTypeHelpers
+    public class IssueStatusTypeHelper : IIssueStatusTypeHelper
     {
-        public static SelectList GetSelectList()
+        public SelectList GetSelectList()
         {
-            var values = Enum.GetValues(typeof(IssuePriorityType)).Cast<IssuePriorityType>(); ;
+            var values = Enum.GetValues(typeof(IssueStatusType)).Cast<IssueStatusType>(); ;
             var selectListItems = new List<SelectListItem>();
             foreach(var value in values)
             {
                 selectListItems.Add(new SelectListItem
                 {
                     Value = value.ToString(),
-                    Text = Enum.GetName(typeof(IssuePriorityType), value)
+                    Text = Enum.GetName(typeof(IssueStatusType), value)
 
                 });
             }

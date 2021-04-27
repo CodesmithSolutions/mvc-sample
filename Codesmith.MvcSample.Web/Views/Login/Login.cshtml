@@ -66,14 +66,13 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        <hr>
                                     }
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        @Html.ActionLink("Forgot Password?", "ForgotPassword", "Login", null, new { @class = "small" })
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        @Html.ActionLink("Create an Account!", "Register", "Login", null, new { @class = "small"} )
                                     </div>
                                 </div>
                             </div>

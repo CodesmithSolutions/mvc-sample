@@ -16,12 +16,16 @@ namespace Codesmith.MvcSample.Web.Controllers
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
         private readonly IIssueService _issueService;
+        private readonly IIssueSelectListHelper _selectListHelper;
 
-        public IssueController(IMapper mapper, IUserService userService, IIssueService issueService)
+        public IssueController(IMapper mapper, IUserService userService, 
+            IIssueService issueService, 
+            IIssueSelectListHelper selectListHelper)
         {
             _mapper = mapper;
             _userService = userService;
             _issueService = issueService;
+            _selectListHelper = selectListHelper;
         }
 
         [HttpGet, Route("issues", Name = "issues")]
